@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="354.0" prefWidth="1129.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.141" fx:controller="Views.Actifs.PlacementAutreAFController">
+   <children>
+      <AnchorPane layoutY="1.0" prefHeight="48.0" prefWidth="1169.0" style="-fx-background-color: #91a9ef;" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Label layoutX="558.0" layoutY="11.0" text="Brut" textFill="WHITE">
+               <font>
+                  <Font name="Corbel" size="23.0" />
+               </font>
+            </Label>
+            <Label layoutX="682.0" layoutY="11.0" text="Ammort." textFill="WHITE">
+               <font>
+                  <Font name="Corbel" size="23.0" />
+               </font>
+            </Label>
+            <Label layoutX="855.0" layoutY="11.0" text="Net N" textFill="WHITE">
+               <font>
+                  <Font name="Corbel" size="23.0" />
+               </font>
+            </Label>
+            <Label layoutX="999.0" layoutY="11.0" text="Net N-1" textFill="WHITE">
+               <font>
+                  <Font name="Corbel" size="23.0" />
+               </font>
+            </Label>
+         </children>
+         <effect>
+            <DropShadow />
+         </effect>
+      </AnchorPane>
+      <VBox alignment="CENTER" layoutX="35.0" layoutY="72.0" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" minHeight="-Infinity" minWidth="-Infinity" prefHeight="270.0" prefWidth="1094.0">
+         <children>
+            <HBox prefHeight="38.0" prefWidth="1211.0">
+               <children>
+                  <Label prefHeight="31.0" prefWidth="475.0" text="Prets et autres creances Fin. courants">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets top="7.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="TPretBrut" onKeyReleased="#PretBrut" prefHeight="40.0" prefWidth="134.0" promptText="0.00" style="-fx-border-color: black; -fx-border-width: 0 0 1 0;">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="TPretAmmort" onKeyReleased="#PretAmmort" prefHeight="40.0" prefWidth="134.0" promptText="0.00" style="-fx-border-color: black; -fx-border-width: 0 0 1 0;">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <TextField fx:id="TPretNetN" editable="false" prefHeight="40.0" prefWidth="134.0" promptText="0.00" style="-fx-border-color: black; -fx-border-width: 0 0 1 0;">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <TextField fx:id="TPretNetN1" editable="false" prefHeight="40.0" prefWidth="134.0" promptText="0.00" style="-fx-border-color: black; -fx-border-width: 0 0 1 0;">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="38.0" prefWidth="1211.0">
+               <children>
+                  <Label prefHeight="31.0" prefWidth="475.0" text="Placements courants">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets top="7.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="TPlacementBrut" onKeyReleased="#PlacementBrut" prefHeight="40.0" prefWidth="134.0" promptText="0.00" style="-fx-border-color: black; -fx-border-width: 0 0 1 0;">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="TPlacementAmmort" onKeyReleased="#PlacementAmmort" prefHeight="40.0" prefWidth="134.0" promptText="0.00" style="-fx-border-color: black; -fx-border-width: 0 0 1 0;">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <TextField fx:id="TPlacementNetN" editable="false" prefHeight="40.0" prefWidth="134.0" promptText="0.00" style="-fx-border-color: black; -fx-border-width: 0 0 1 0;">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <TextField fx:id="TPlacementNetN1" editable="false" prefHeight="40.0" prefWidth="134.0" promptText="0.00" style="-fx-border-color: black; -fx-border-width: 0 0 1 0;">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="38.0" prefWidth="1211.0">
+               <children>
+                  <Label prefHeight="31.0" prefWidth="475.0" text="Regies d'avances et accreditifs">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets top="7.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="TRegiesAvBrut" onKeyReleased="#RegiesAvBrut" prefHeight="27.0" prefWidth="134.0" promptText="0.00" style="-fx-border-color: black; -fx-border-width: 0 0 1 0;">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="TRegiesAvAmmort" onKeyReleased="#RegiesAvAmmort" prefHeight="27.0" prefWidth="134.0" promptText="0.00" style="-fx-border-color: black; -fx-border-width: 0 0 1 0;">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <TextField fx:id="TRegiesAvNetN" editable="false" prefHeight="27.0" prefWidth="134.0" promptText="0.00" style="-fx-border-color: black; -fx-border-width: 0 0 1 0;">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <TextField fx:id="TRegiesAvNetN1" editable="false" prefHeight="27.0" prefWidth="134.0" promptText="0.00" style="-fx-border-color: black; -fx-border-width: 0 0 1 0;">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox prefHeight="38.0" prefWidth="1211.0">
+               <children>
+                  <Label prefHeight="31.0" prefWidth="475.0" text="Autres">
+                     <font>
+                        <Font size="20.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets top="7.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="TAutreBrut" onKeyReleased="#AutreBrut" prefHeight="27.0" prefWidth="134.0" promptText="0.00" style="-fx-border-color: black; -fx-border-width: 0 0 1 0;">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                  </TextField>
+                  <TextField fx:id="TAutreAmmort" onKeyReleased="#AutreAmmort" prefHeight="27.0" prefWidth="134.0" promptText="0.00" style="-fx-border-color: black; -fx-border-width: 0 0 1 0;">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <TextField fx:id="TAutreNetN" editable="false" prefHeight="27.0" prefWidth="134.0" promptText="0.00" style="-fx-border-color: black; -fx-border-width: 0 0 1 0;">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </TextField>
+                  <TextField fx:id="TAutreNetN1" editable="false" prefHeight="27.0" prefWidth="134.0" promptText="0.00" style="-fx-border-color: black; -fx-border-width: 0 0 1 0;">
+                     <font>
+                        <Font size="17.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </TextField>
+               </children>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="56.0" prefWidth="1211.0">
+               <children>
+                  <JFXButton fx:id="BtnQuitter" buttonType="RAISED" onAction="#Quitter" prefHeight="31.0" prefWidth="150.0" ripplerFill="#227abd" text="Quitter" />
+                  <JFXButton fx:id="BtnAnnuler" buttonType="RAISED" onAction="#Annuler" prefHeight="31.0" prefWidth="150.0" ripplerFill="#227abd" text="Annuler">
+                     <HBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </HBox.margin>
+                  </JFXButton>
+                  <JFXButton fx:id="BtnEnregistrer" buttonType="RAISED" onAction="#Enregistrer" prefHeight="31.0" prefWidth="150.0" ripplerFill="#227abd" text="Enregistrer">
+                     <HBox.margin>
+                        <Insets left="10.0" right="10.0" />
+                     </HBox.margin>
+                  </JFXButton>
+               </children>
+               <VBox.margin>
+                  <Insets top="25.0" />
+               </VBox.margin>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

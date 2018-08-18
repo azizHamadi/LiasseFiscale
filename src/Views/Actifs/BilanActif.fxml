@@ -1,0 +1,540 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" fx:id="BilanActif" prefHeight="900.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Views.Actifs.BilanActifController">
+   <children>
+      <AnchorPane layoutX="14.0" layoutY="14.0" prefHeight="52.0" prefWidth="1210.0" style="-fx-background-color: #f0ffff;" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="14.0">
+         <children>
+            <Label layoutX="39.0" layoutY="15.0" text="Actifs">
+               <font>
+                  <Font name="Corbel" size="23.0" />
+               </font>
+            </Label>
+            <Label layoutX="499.0" layoutY="15.0" text="Brut" AnchorPane.rightAnchor="675.0">
+               <font>
+                  <Font name="Corbel" size="23.0" />
+               </font>
+            </Label>
+            <Label layoutX="644.0" layoutY="15.0" text="Ammort." AnchorPane.rightAnchor="485.0">
+               <font>
+                  <Font name="Corbel" size="23.0" />
+               </font>
+            </Label>
+            <Label layoutX="823.0" layoutY="5.0" text="Net N" AnchorPane.rightAnchor="336.0">
+               <font>
+                  <Font name="Corbel" size="23.0" />
+               </font>
+            </Label>
+            <Label layoutX="975.0" layoutY="5.0" text="Net N-1" AnchorPane.rightAnchor="166.0">
+               <font>
+                  <Font name="Corbel" size="23.0" />
+               </font>
+            </Label>
+            <Label fx:id="TAnneeN" layoutX="832.0" layoutY="34.0" text="année" AnchorPane.rightAnchor="345.0">
+               <font>
+                  <Font name="Corbel" size="15.0" />
+               </font>
+            </Label>
+            <Label fx:id="TAnneeN1" layoutX="993.0" layoutY="34.0" text="année" AnchorPane.rightAnchor="184.0">
+               <font>
+                  <Font name="Corbel" size="15.0" />
+               </font>
+            </Label>
+            <JFXButton fx:id="BntValider" buttonType="RAISED" layoutX="1082.0" layoutY="7.0" onAction="#ValiderBilanActifs" ripplerFill="#227abd" text="Valider" AnchorPane.rightAnchor="29.0">
+               <graphic>
+                  <FontAwesomeIconView fill="#2279bf" glyphName="CHECK" size="20" />
+               </graphic>
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </JFXButton>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="14.0" layoutY="72.0" prefHeight="38.0" prefWidth="1210.0" style="-fx-background-color: #91a9ef;" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="6.0">
+         <children>
+            <Label layoutX="14.0" layoutY="7.0" text="Actifs non courants" textFill="WHITE">
+               <font>
+                  <Font name="FontAwesome Regular" size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <Label layoutX="30.0" layoutY="123.0" text="Actifs immobilisés">
+         <font>
+            <Font name="Book Antiqua Bold" size="17.0" />
+         </font>
+      </Label>
+      <Label layoutX="46.0" layoutY="149.0" prefHeight="36.0" prefWidth="414.0" text="Immobilisations incorporelles">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="46.0" layoutY="198.0" prefHeight="36.0" prefWidth="414.0" text="Immobilisations corporelles">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="46.0" layoutY="247.0" prefHeight="36.0" prefWidth="414.0" text="Immobilisations financières">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <HBox layoutX="27.0" layoutY="287.0" prefHeight="45.0" prefWidth="1200.0" AnchorPane.leftAnchor="27.0" AnchorPane.rightAnchor="3.0">
+         <children>
+            <Label prefHeight="37.0" prefWidth="431.0" text="Total des actifs immobilisés">
+               <font>
+                  <Font name="Book Antiqua Bold" size="17.0" />
+               </font>
+               <HBox.margin>
+                  <Insets top="5.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+      <HBox layoutX="46.0" layoutY="334.0" prefHeight="45.0" prefWidth="1168.0" AnchorPane.leftAnchor="46.0" AnchorPane.rightAnchor="16.0">
+         <children>
+            <Label prefHeight="36.0" prefWidth="414.0" text="Autres actifs non courants">
+               <font>
+                  <Font size="19.0" />
+               </font>
+               <HBox.margin>
+                  <Insets top="1.0" />
+               </HBox.margin>
+            </Label>
+         </children>
+      </HBox>
+      <HBox layoutX="30.0" layoutY="382.0" prefHeight="48.0" prefWidth="1200.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <Label prefHeight="37.0" prefWidth="431.0" text="Total des actifs non courants">
+               <font>
+                  <Font name="Book Antiqua Bold" size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <AnchorPane layoutX="14.0" layoutY="434.0" prefHeight="38.0" prefWidth="1210.0" style="-fx-background-color: #91a9ef;" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="6.0">
+         <children>
+            <Label layoutX="14.0" layoutY="7.0" text="Actifs courants" textFill="WHITE">
+               <font>
+                  <Font name="FontAwesome Regular" size="20.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <Label layoutX="46.0" layoutY="481.0" prefHeight="36.0" prefWidth="414.0" text="Stock">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="46.0" layoutY="527.0" prefHeight="36.0" prefWidth="414.0" text="Clients et comptes rattachés">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="46.0" layoutY="572.0" prefHeight="36.0" prefWidth="414.0" text="Autres actifs courants">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="46.0" layoutY="622.0" prefHeight="36.0" prefWidth="414.0" text="Placement et autres actifs financiers">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="46.0" layoutY="670.0" prefHeight="36.0" prefWidth="414.0" text="Liquidités et équivalents de liquidités">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="46.0" layoutY="719.0" prefHeight="36.0" prefWidth="414.0" text="Autres postes des actifs du bilan">
+         <font>
+            <Font size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="30.0" layoutY="767.0" prefHeight="36.0" prefWidth="414.0" text="Total des actifs courants">
+         <font>
+            <Font name="Book Antiqua Bold" size="20.0" />
+         </font>
+      </Label>
+      <AnchorPane layoutX="14.0" layoutY="810.0" prefHeight="48.0" prefWidth="1210.0" style="-fx-background-color: #f0ffff;" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="6.0">
+         <children>
+            <Label layoutX="39.0" layoutY="11.0" text="Total des actifs">
+               <font>
+                  <Font name="Corbel" size="25.0" />
+               </font>
+            </Label>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="452.0" layoutY="131.0" prefHeight="756.0" prefWidth="778.0" AnchorPane.rightAnchor="0.0">
+         <children>
+            <HBox layoutX="6.0" layoutY="8.0" prefHeight="45.0" prefWidth="714.0">
+               <children>
+                  <JFXTextField fx:id="TImmobIncBrut" editable="false" prefHeight="31.0" prefWidth="148.0" />
+                  <JFXTextField fx:id="TImmobIncAmmort" editable="false" prefHeight="31.0" prefWidth="148.0">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </JFXTextField>
+                  <JFXTextField fx:id="TImmobIncNetN" editable="false" prefHeight="31.0" prefWidth="148.0">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </JFXTextField>
+                  <JFXTextField fx:id="TImmobIncNetN1" editable="false" prefHeight="31.0" prefWidth="148.0">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </JFXTextField>
+                  <JFXButton fx:id="BtnAddImmobInc" alignment="BASELINE_LEFT" buttonType="RAISED" contentDisplay="CENTER" graphicTextGap="0.0" onAction="#AddImmobInc" prefHeight="31.0" prefWidth="37.0" ripplerFill="#2279bf" text=" " textOverrun="CLIP">
+                     <graphic>
+                        <FontAwesomeIconView fill="#2279bf" glyphName="PLUS_CIRCLE" size="20" strokeLineCap="ROUND" wrappingWidth="19.285714149475098" />
+                     </graphic>
+                     <HBox.margin>
+                        <Insets left="10.0" top="7.0" />
+                     </HBox.margin>
+                  </JFXButton>
+               </children>
+            </HBox>
+            <HBox layoutX="6.0" layoutY="59.0" prefHeight="45.0" prefWidth="714.0">
+               <children>
+                  <JFXTextField fx:id="TImmobCorpBrut" editable="false" prefHeight="31.0" prefWidth="148.0" />
+                  <JFXTextField fx:id="TImmobCorpAmmort" editable="false" prefHeight="31.0" prefWidth="148.0">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </JFXTextField>
+                  <JFXTextField fx:id="TImmobCorpNetN" editable="false" prefHeight="31.0" prefWidth="148.0">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </JFXTextField>
+                  <JFXTextField fx:id="TImmobCorpNetN1" editable="false" prefHeight="31.0" prefWidth="148.0">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </JFXTextField>
+                  <JFXButton fx:id="BtnAddImmobCorp" alignment="BASELINE_LEFT" buttonType="RAISED" contentDisplay="CENTER" graphicTextGap="0.0" onAction="#AddImmobCorp" prefHeight="31.0" prefWidth="37.0" ripplerFill="#2279bf" text=" " textOverrun="CLIP">
+                     <graphic>
+                        <FontAwesomeIconView fill="#2279bf" glyphName="PLUS_CIRCLE" size="20" strokeLineCap="ROUND" wrappingWidth="19.285714149475098" />
+                     </graphic>
+                     <HBox.margin>
+                        <Insets left="10.0" top="7.0" />
+                     </HBox.margin>
+                  </JFXButton>
+               </children>
+            </HBox>
+            <HBox layoutX="6.0" layoutY="108.0" prefHeight="45.0" prefWidth="714.0">
+               <children>
+                  <JFXTextField fx:id="TImmobFinBrut" editable="false" prefHeight="31.0" prefWidth="148.0" />
+                  <JFXTextField fx:id="TImmobFinAmmort" editable="false" prefHeight="31.0" prefWidth="148.0">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </JFXTextField>
+                  <JFXTextField fx:id="TImmobFinNetN" editable="false" prefHeight="31.0" prefWidth="148.0">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </JFXTextField>
+                  <JFXTextField fx:id="TImmobFinNetN1" editable="false" prefHeight="31.0" prefWidth="148.0">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </JFXTextField>
+                  <JFXButton fx:id="BtnAddImmobFin" alignment="BASELINE_LEFT" buttonType="RAISED" contentDisplay="CENTER" graphicTextGap="0.0" onAction="#AddImmobFin" prefHeight="31.0" prefWidth="37.0" ripplerFill="#2279bf" text=" " textOverrun="CLIP">
+                     <graphic>
+                        <FontAwesomeIconView fill="#2279bf" glyphName="PLUS_CIRCLE" size="20" strokeLineCap="ROUND" wrappingWidth="19.285714149475098" />
+                     </graphic>
+                     <HBox.margin>
+                        <Insets left="10.0" top="7.0" />
+                     </HBox.margin>
+                  </JFXButton>
+               </children>
+            </HBox>
+            <HBox layoutX="6.0" layoutY="157.0" prefHeight="45.0" prefWidth="714.0">
+               <children>
+                  <JFXTextField fx:id="TTotalImmobBrut" editable="false" prefHeight="31.0" prefWidth="148.0" />
+                  <JFXTextField fx:id="TTotalImmobAmmort" editable="false" prefHeight="31.0" prefWidth="148.0">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </JFXTextField>
+                  <JFXTextField fx:id="TTotalImmobNetN" editable="false" prefHeight="31.0" prefWidth="148.0">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </JFXTextField>
+                  <JFXTextField fx:id="TTotalImmobNetN1" editable="false" prefHeight="31.0" prefWidth="148.0">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </JFXTextField>
+               </children>
+            </HBox>
+            <HBox layoutX="6.0" layoutY="201.0" prefHeight="45.0" prefWidth="714.0">
+               <children>
+                  <JFXTextField fx:id="TAutreAncBrut" editable="false" prefHeight="31.0" prefWidth="148.0" />
+                  <JFXTextField fx:id="TAutreAncAmmort" editable="false" prefHeight="31.0" prefWidth="148.0">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </JFXTextField>
+                  <JFXTextField fx:id="TAutreAncNetN" editable="false" prefHeight="31.0" prefWidth="148.0">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </JFXTextField>
+                  <JFXTextField fx:id="TAutreAncNetN1" editable="false" prefHeight="31.0" prefWidth="148.0">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </JFXTextField>
+                  <JFXButton fx:id="BtnAddAutreAnc" alignment="BASELINE_LEFT" buttonType="RAISED" contentDisplay="CENTER" graphicTextGap="0.0" onAction="#AddAutreAnc" prefHeight="31.0" prefWidth="37.0" ripplerFill="#2279bf" text=" " textOverrun="CLIP">
+                     <graphic>
+                        <FontAwesomeIconView fill="#2279bf" glyphName="PLUS_CIRCLE" size="20" strokeLineCap="ROUND" wrappingWidth="19.285714149475098" />
+                     </graphic>
+                     <HBox.margin>
+                        <Insets left="10.0" top="7.0" />
+                     </HBox.margin>
+                  </JFXButton>
+               </children>
+            </HBox>
+            <HBox layoutX="6.0" layoutY="245.0" prefHeight="56.0" prefWidth="714.0">
+               <children>
+                  <JFXTextField fx:id="TTotalAncBrut" editable="false" prefHeight="31.0" prefWidth="148.0" />
+                  <JFXTextField fx:id="TTotalAncAmmort" editable="false" prefHeight="31.0" prefWidth="148.0">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </JFXTextField>
+                  <JFXTextField fx:id="TTotalAncNetN" editable="false" prefHeight="31.0" prefWidth="148.0">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </JFXTextField>
+                  <JFXTextField fx:id="TTotalAncNetN1" editable="false" prefHeight="31.0" prefWidth="148.0">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </JFXTextField>
+               </children>
+            </HBox>
+            <HBox layoutX="6.0" layoutY="345.0" prefHeight="56.0" prefWidth="714.0">
+               <children>
+                  <JFXTextField fx:id="TStockBrut" editable="false" prefHeight="31.0" prefWidth="148.0" />
+                  <JFXTextField fx:id="TStockAmmort" editable="false" prefHeight="31.0" prefWidth="148.0">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </JFXTextField>
+                  <JFXTextField fx:id="TStockNetN" editable="false" prefHeight="31.0" prefWidth="148.0">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </JFXTextField>
+                  <JFXTextField fx:id="TStockNetN1" editable="false" prefHeight="31.0" prefWidth="148.0">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </JFXTextField>
+                  <JFXButton fx:id="BtnAddStock" alignment="BASELINE_LEFT" buttonType="RAISED" contentDisplay="CENTER" graphicTextGap="0.0" onAction="#AddStock" prefHeight="31.0" prefWidth="37.0" ripplerFill="#2279bf" text=" " textOverrun="CLIP">
+                     <graphic>
+                        <FontAwesomeIconView fill="#2279bf" glyphName="PLUS_CIRCLE" size="20" strokeLineCap="ROUND" wrappingWidth="19.285714149475098" />
+                     </graphic>
+                     <HBox.margin>
+                        <Insets left="10.0" top="7.0" />
+                     </HBox.margin>
+                  </JFXButton>
+               </children>
+            </HBox>
+            <HBox layoutX="6.0" layoutY="390.0" prefHeight="56.0" prefWidth="714.0">
+               <children>
+                  <JFXTextField fx:id="TClientComptBrut" editable="false" prefHeight="31.0" prefWidth="148.0" />
+                  <JFXTextField fx:id="TClientComptAmmort" editable="false" prefHeight="31.0" prefWidth="148.0">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </JFXTextField>
+                  <JFXTextField fx:id="TClientComptNetN" editable="false" prefHeight="31.0" prefWidth="148.0">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </JFXTextField>
+                  <JFXTextField fx:id="TClientComptNetN1" editable="false" prefHeight="31.0" prefWidth="148.0">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </JFXTextField>
+                  <JFXButton fx:id="BtnAddClientCompt" alignment="BASELINE_LEFT" buttonType="RAISED" contentDisplay="CENTER" graphicTextGap="0.0" onAction="#AddClientCompt" prefHeight="31.0" prefWidth="37.0" ripplerFill="#2279bf" text=" " textOverrun="CLIP">
+                     <graphic>
+                        <FontAwesomeIconView fill="#2279bf" glyphName="PLUS_CIRCLE" size="20" strokeLineCap="ROUND" wrappingWidth="19.285714149475098" />
+                     </graphic>
+                     <HBox.margin>
+                        <Insets left="10.0" top="7.0" />
+                     </HBox.margin>
+                  </JFXButton>
+               </children>
+            </HBox>
+            <HBox layoutX="6.0" layoutY="437.0" prefHeight="56.0" prefWidth="714.0">
+               <children>
+                  <JFXTextField fx:id="TAutreACBrut" editable="false" prefHeight="31.0" prefWidth="148.0" />
+                  <JFXTextField fx:id="TAutreACAmmort" editable="false" prefHeight="31.0" prefWidth="148.0">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </JFXTextField>
+                  <JFXTextField fx:id="TAutreACNetN" editable="false" prefHeight="31.0" prefWidth="148.0">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </JFXTextField>
+                  <JFXTextField fx:id="TAutreACNetN1" editable="false" prefHeight="31.0" prefWidth="148.0">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </JFXTextField>
+                  <JFXButton fx:id="BtnAddAutreAC" alignment="BASELINE_LEFT" buttonType="RAISED" contentDisplay="CENTER" graphicTextGap="0.0" onAction="#AddAutreAC" prefHeight="31.0" prefWidth="37.0" ripplerFill="#2279bf" text=" " textOverrun="CLIP">
+                     <graphic>
+                        <FontAwesomeIconView fill="#2279bf" glyphName="PLUS_CIRCLE" size="20" strokeLineCap="ROUND" wrappingWidth="19.285714149475098" />
+                     </graphic>
+                     <HBox.margin>
+                        <Insets left="10.0" top="7.0" />
+                     </HBox.margin>
+                  </JFXButton>
+               </children>
+            </HBox>
+            <HBox layoutX="6.0" layoutY="486.0" prefHeight="56.0" prefWidth="714.0">
+               <children>
+                  <JFXTextField fx:id="TPlacAutreAFBrut" editable="false" prefHeight="31.0" prefWidth="148.0" />
+                  <JFXTextField fx:id="TPlacAutreAFAmmort" editable="false" prefHeight="31.0" prefWidth="148.0">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </JFXTextField>
+                  <JFXTextField fx:id="TPlacAutreAFNetN" editable="false" prefHeight="31.0" prefWidth="148.0">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </JFXTextField>
+                  <JFXTextField fx:id="TPlacAutreAFNetN1" editable="false" prefHeight="31.0" prefWidth="148.0">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </JFXTextField>
+                  <JFXButton fx:id="BtnAddPlacAutreAF" alignment="BASELINE_LEFT" buttonType="RAISED" contentDisplay="CENTER" graphicTextGap="0.0" onAction="#AddPlacAutreAF" prefHeight="31.0" prefWidth="37.0" ripplerFill="#2279bf" text=" " textOverrun="CLIP">
+                     <graphic>
+                        <FontAwesomeIconView fill="#2279bf" glyphName="PLUS_CIRCLE" size="20" strokeLineCap="ROUND" wrappingWidth="19.285714149475098" />
+                     </graphic>
+                     <HBox.margin>
+                        <Insets left="10.0" top="7.0" />
+                     </HBox.margin>
+                  </JFXButton>
+               </children>
+            </HBox>
+            <HBox layoutX="6.0" layoutY="534.0" prefHeight="56.0" prefWidth="714.0">
+               <children>
+                  <JFXTextField fx:id="TLiquiditeBrut" editable="false" prefHeight="31.0" prefWidth="148.0" />
+                  <JFXTextField fx:id="TLiquiditeAmmort" editable="false" prefHeight="31.0" prefWidth="148.0">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </JFXTextField>
+                  <JFXTextField fx:id="TLiquiditeNetN" editable="false" prefHeight="31.0" prefWidth="148.0">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </JFXTextField>
+                  <JFXTextField fx:id="TLiquiditeNetN1" editable="false" prefHeight="31.0" prefWidth="148.0">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </JFXTextField>
+                  <JFXButton fx:id="BtnAddLiquidite" alignment="BASELINE_LEFT" buttonType="RAISED" contentDisplay="CENTER" graphicTextGap="0.0" onAction="#AddLiquidite" prefHeight="31.0" prefWidth="37.0" ripplerFill="#2279bf" text=" " textOverrun="CLIP">
+                     <graphic>
+                        <FontAwesomeIconView fill="#2279bf" glyphName="PLUS_CIRCLE" size="20" strokeLineCap="ROUND" wrappingWidth="19.285714149475098" />
+                     </graphic>
+                     <HBox.margin>
+                        <Insets left="10.0" top="7.0" />
+                     </HBox.margin>
+                  </JFXButton>
+               </children>
+            </HBox>
+            <HBox layoutX="6.0" layoutY="584.0" prefHeight="56.0" prefWidth="714.0">
+               <children>
+                  <JFXTextField fx:id="TAutrePostBrut" editable="false" prefHeight="31.0" prefWidth="148.0" />
+                  <JFXTextField fx:id="TAutrePostAmmort" editable="false" prefHeight="31.0" prefWidth="148.0">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </JFXTextField>
+                  <JFXTextField fx:id="TAutrePostNetN" editable="false" prefHeight="31.0" prefWidth="148.0">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </JFXTextField>
+                  <JFXTextField fx:id="TAutrePostNetN1" editable="false" prefHeight="31.0" prefWidth="148.0">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </JFXTextField>
+                  <JFXButton fx:id="BtnAddAutrePost" alignment="BASELINE_LEFT" buttonType="RAISED" contentDisplay="CENTER" graphicTextGap="0.0" onAction="#AddAutrePost" prefHeight="31.0" prefWidth="37.0" ripplerFill="#2279bf" text=" " textOverrun="CLIP">
+                     <graphic>
+                        <FontAwesomeIconView fill="#2279bf" glyphName="PLUS_CIRCLE" size="20" strokeLineCap="ROUND" wrappingWidth="19.285714149475098" />
+                     </graphic>
+                     <HBox.margin>
+                        <Insets left="10.0" top="7.0" />
+                     </HBox.margin>
+                  </JFXButton>
+               </children>
+            </HBox>
+            <HBox layoutX="6.0" layoutY="632.0" prefHeight="56.0" prefWidth="714.0">
+               <children>
+                  <JFXTextField fx:id="TTotalACBrut" editable="false" prefHeight="31.0" prefWidth="148.0" />
+                  <JFXTextField fx:id="TTotalACAmmort" editable="false" prefHeight="31.0" prefWidth="148.0">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </JFXTextField>
+                  <JFXTextField fx:id="TTotalACNetN" editable="false" prefHeight="31.0" prefWidth="148.0">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </JFXTextField>
+                  <JFXTextField fx:id="TTotalACNetN1" editable="false" prefHeight="31.0" prefWidth="148.0">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </JFXTextField>
+               </children>
+            </HBox>
+            <HBox layoutX="6.0" layoutY="685.0" prefHeight="56.0" prefWidth="714.0">
+               <children>
+                  <JFXTextField fx:id="TTotalABrut" editable="false" prefHeight="31.0" prefWidth="148.0" />
+                  <JFXTextField fx:id="TTotalAAmmort" editable="false" prefHeight="31.0" prefWidth="148.0">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </JFXTextField>
+                  <JFXTextField fx:id="TTotalANetN" editable="false" prefHeight="31.0" prefWidth="148.0">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </JFXTextField>
+                  <JFXTextField fx:id="TTotalANetN1" editable="false" prefHeight="31.0" prefWidth="148.0">
+                     <HBox.margin>
+                        <Insets left="20.0" />
+                     </HBox.margin>
+                  </JFXTextField>
+               </children>
+            </HBox>
+         </children></AnchorPane>
+   </children>
+</AnchorPane>

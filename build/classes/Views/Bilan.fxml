@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="553.0" prefWidth="1211.0" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Views.BilanController">
+   <children>
+      <HBox prefHeight="549.0" prefWidth="1211.0">
+         <children>
+            <VBox alignment="TOP_CENTER" prefHeight="659.0" prefWidth="604.0">
+               <children>
+                  <Label contentDisplay="CENTER" prefHeight="70.0" prefWidth="614.0" style="-fx-border-width: 2 0 2 0; -fx-border-color: black; -fx-padding: 10; -fx-alignment: center;" text="Actif">
+                     <font>
+                        <Font name="Arial Bold" size="41.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets bottom="20.0" top="30.0" />
+                     </VBox.margin>
+                  </Label>
+                  <VBox prefHeight="400.0" prefWidth="604.0" style="-fx-border-color: black; -fx-border-width: 0 0 2 0;">
+                     <children>
+                        <HBox prefHeight="30.0" prefWidth="606.0">
+                           <children>
+                              <Button fx:id="BtnAnc" mnemonicParsing="false" prefHeight="42.0" prefWidth="472.0" style="-fx-background-color: transparent; -fx-alignment: left;" text="Actifs non courants">
+                                 <font>
+                                    <Font name="Arial" size="22.0" />
+                                 </font>
+                              </Button>
+                              <Label nodeOrientation="RIGHT_TO_LEFT" prefHeight="31.0" prefWidth="123.0" text="Total">
+                                 <font>
+                                    <Font name="Arial Bold" size="16.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="30.0" prefWidth="606.0">
+                           <children>
+                              <Button fx:id="BtnImmobInc" mnemonicParsing="false" prefHeight="31.0" prefWidth="472.0" style="-fx-background-color: transparent; -fx-alignment: left;" text="Immobilisation incorporelles">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Button>
+                              <Label nodeOrientation="RIGHT_TO_LEFT" prefHeight="31.0" prefWidth="123.0" text="Total" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="30.0" prefWidth="606.0">
+                           <children>
+                              <Button fx:id="BtnImmobCor" mnemonicParsing="false" prefHeight="31.0" prefWidth="472.0" style="-fx-background-color: transparent; -fx-alignment: left;" text="Immobilisation corporelles">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Button>
+                              <Label nodeOrientation="RIGHT_TO_LEFT" prefHeight="31.0" prefWidth="123.0" text="Total" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="30.0" prefWidth="606.0">
+                           <children>
+                              <Button fx:id="BtnImmobFin" mnemonicParsing="false" prefHeight="31.0" prefWidth="472.0" style="-fx-background-color: transparent; -fx-alignment: left;" text="Immobilisation financières">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Button>
+                              <Label nodeOrientation="RIGHT_TO_LEFT" prefHeight="31.0" prefWidth="123.0" text="Total" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="30.0" prefWidth="606.0">
+                           <children>
+                              <Button fx:id="BtnAutActNC" mnemonicParsing="false" prefHeight="31.0" prefWidth="472.0" style="-fx-background-color: transparent; -fx-alignment: left;" text="Autres actifs non courants">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Button>
+                              <Label nodeOrientation="RIGHT_TO_LEFT" prefHeight="31.0" prefWidth="123.0" text="Total" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="30.0" prefWidth="606.0">
+                           <children>
+                              <Button fx:id="BtnActCour" mnemonicParsing="false" prefHeight="42.0" prefWidth="472.0" style="-fx-background-color: transparent; -fx-alignment: left;" text="Actifs courants">
+                                 <font>
+                                    <Font name="Arial" size="22.0" />
+                                 </font>
+                              </Button>
+                              <Label nodeOrientation="RIGHT_TO_LEFT" prefHeight="31.0" prefWidth="123.0" text="Total">
+                                 <font>
+                                    <Font name="Arial Bold" size="16.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="30.0" prefWidth="606.0">
+                           <children>
+                              <Button fx:id="BtnStock" mnemonicParsing="false" prefHeight="31.0" prefWidth="472.0" style="-fx-background-color: transparent; -fx-alignment: left;" text="Stock">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Button>
+                              <Label nodeOrientation="RIGHT_TO_LEFT" prefHeight="31.0" prefWidth="123.0" text="Total" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="30.0" prefWidth="606.0">
+                           <children>
+                              <Button fx:id="BtnClientComp" mnemonicParsing="false" prefHeight="31.0" prefWidth="472.0" style="-fx-background-color: transparent; -fx-alignment: left;" text="Clients et comptes rattaches">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Button>
+                              <Label nodeOrientation="RIGHT_TO_LEFT" prefHeight="31.0" prefWidth="123.0" text="Total" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="30.0" prefWidth="606.0">
+                           <children>
+                              <Button fx:id="BtnPlacAutreAF" mnemonicParsing="false" prefHeight="31.0" prefWidth="472.0" style="-fx-background-color: transparent; -fx-alignment: left;" text="Placement et autres actifs financiers">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Button>
+                              <Label nodeOrientation="RIGHT_TO_LEFT" prefHeight="31.0" prefWidth="123.0" text="Total" />
+                           </children>
+                        </HBox>
+                        <HBox prefHeight="30.0" prefWidth="606.0">
+                           <children>
+                              <Button fx:id="BtnLiq" mnemonicParsing="false" prefHeight="42.0" prefWidth="472.0" style="-fx-background-color: transparent; -fx-alignment: left;" text="Liquidités et équivalent de liquidités">
+                                 <font>
+                                    <Font name="Arial" size="22.0" />
+                                 </font>
+                              </Button>
+                              <Label nodeOrientation="RIGHT_TO_LEFT" prefHeight="31.0" prefWidth="123.0" text="Total">
+                                 <font>
+                                    <Font name="Arial Bold" size="16.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+            <VBox alignment="TOP_CENTER" prefHeight="615.0" prefWidth="608.0">
+               <children>
+                  <Label contentDisplay="CENTER" prefHeight="70.0" prefWidth="614.0" style="-fx-border-width: 2 0 2 0; -fx-border-color: black; -fx-padding: 10; -fx-alignment: center;" text="Passif">
+                     <font>
+                        <Font name="Arial Bold" size="41.0" />
+                     </font>
+                     <VBox.margin>
+                        <Insets top="30.0" />
+                     </VBox.margin>
+                  </Label>
+                  <VBox prefHeight="420.0" prefWidth="608.0" style="-fx-border-color: black; -fx-border-width: 0 0 2 2;">
+                     <children>
+                        <Button mnemonicParsing="false" style="-fx-background-color: transparent;" text="Capiteaux propres">
+                           <VBox.margin>
+                              <Insets bottom="10.0" top="20.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" style="-fx-background-color: transparent;" text="Résultat">
+                           <VBox.margin>
+                              <Insets bottom="10.0" />
+                           </VBox.margin>
+                        </Button>
+                        <Button mnemonicParsing="false" style="-fx-background-color: transparent;" text="Provisions" />
+                        <Button mnemonicParsing="false" style="-fx-background-color: transparent;" text="dettes à long terme" />
+                        <Button mnemonicParsing="false" style="-fx-background-color: transparent;" text="dettes à court terme" />
+                        <Button mnemonicParsing="false" style="-fx-background-color: transparent;" text="Valeurs mobilières" />
+                        <Button mnemonicParsing="false" style="-fx-background-color: transparent;" text="ps : nos hedha mch magdoud :p ">
+                           <font>
+                              <Font size="24.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

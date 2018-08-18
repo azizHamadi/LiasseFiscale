@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import de.jensd.fx.glyphs.materialdesignicons.MaterialDesignIconView?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<AnchorPane id="AnchorPane" prefHeight="950.0" prefWidth="1521.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Views.TemplateController">
+   <children>
+      <AnchorPane prefHeight="798.0" prefWidth="319.0" style="-fx-background-color: #F0f7ff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <AnchorPane prefHeight="798.0" prefWidth="52.0" style="-fx-background-color: #fff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <effect>
+                  <DropShadow />
+               </effect>
+            </AnchorPane>
+            <VBox layoutX="2.0" prefHeight="798.0" prefWidth="319.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="2.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <JFXButton fx:id="BtnSociete" alignment="BASELINE_LEFT" graphicTextGap="30.0" onAction="#Societe" prefHeight="58.0" prefWidth="319.0" ripplerFill="#2279bf" text="Société">
+                     <VBox.margin>
+                        <Insets top="75.0" />
+                     </VBox.margin>
+                     <graphic>
+                        <MaterialDesignIconView fill="#2279bf" glyphName="CITY" size="25" />
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton fx:id="BtnExercice" alignment="BASELINE_LEFT" graphicTextGap="30.0" onAction="#Exercice" prefHeight="58.0" prefWidth="319.0" ripplerFill="#2279bf" text="Exercices">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                     <graphic>
+                        <MaterialDesignIconView fill="#2279bf" glyphName="BRIEFCASE" size="25" />
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton fx:id="BtnBilanActif" alignment="BASELINE_LEFT" graphicTextGap="30.0" onAction="#BilanActif" prefHeight="58.0" prefWidth="319.0" ripplerFill="#2279bf" text="Bilan Actif">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                     <graphic>
+                        <MaterialDesignIconView fill="#2279bf" glyphName="CLIPBOARD_OUTLINE" size="25" />
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton fx:id="BtnBilanPassif" alignment="BASELINE_LEFT" graphicTextGap="30.0" onAction="#BilanPassif" prefHeight="58.0" prefWidth="319.0" ripplerFill="#2279bf" text="Bilan Passif">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                     <graphic>
+                        <MaterialDesignIconView fill="#2279bf" glyphName="CLIPBOARD_OUTLINE" size="25" />
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton fx:id="BtnEtatResultat" alignment="BASELINE_LEFT" graphicTextGap="30.0" onAction="#EtatResultat" prefHeight="58.0" prefWidth="319.0" ripplerFill="#2279bf" text="Etats de résultat">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                     <graphic>
+                        <MaterialDesignIconView fill="#2279bf" glyphName="CLIPBOARD_OUTLINE" size="25" />
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton fx:id="BtnFluxTresorerie" alignment="BASELINE_LEFT" graphicTextGap="30.0" onAction="#FluxTresorerie" prefHeight="58.0" prefWidth="319.0" ripplerFill="#2279bf" text="Flux de trésorerie">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                     <graphic>
+                        <MaterialDesignIconView fill="#2279bf" glyphName="CLIPBOARD_OUTLINE" size="25" />
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton fx:id="BtnXml" alignment="BASELINE_LEFT" graphicTextGap="30.0" onAction="#GenerateXML" prefHeight="58.0" prefWidth="319.0" ripplerFill="#2279bf" text="Géneration XML">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                     <graphic>
+                        <MaterialDesignIconView fill="#2279bf" glyphName="FILE_XML" size="25" text="" />
+                     </graphic>
+                  </JFXButton>
+                  <JFXButton fx:id="BtnXmlN1" alignment="BASELINE_LEFT" graphicTextGap="30.0" onAction="#GenerateXMLN1" prefHeight="58.0" prefWidth="319.0" ripplerFill="#2279bf" text="Géneration reports N-1">
+                     <VBox.margin>
+                        <Insets top="10.0" />
+                     </VBox.margin>
+                     <graphic>
+                        <MaterialDesignIconView fill="#2279bf" glyphName="FILE_XML" size="25" />
+                     </graphic>
+                  </JFXButton>
+               </children>
+            </VBox>
+         </children>
+         <effect>
+            <DropShadow />
+         </effect>
+      </AnchorPane>
+      <AnchorPane layoutX="322.0" prefHeight="798.0" prefWidth="979.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="321.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <TabPane fx:id="TabBody" prefHeight="798.0" prefWidth="979.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0" />
+         </children></AnchorPane>
+   </children>
+</AnchorPane>
