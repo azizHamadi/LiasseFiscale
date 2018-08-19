@@ -3,22 +3,33 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/aziz/Documents/NetBeansProjects/projet09/03/wafa/src/Views/Actifs/AutreACController.java</file>
-            <file>file:/C:/Users/aziz/Documents/NetBeansProjects/projet09/03/wafa/src/Views/Actifs/Liquidite.fxml</file>
             <file>file:/C:/Users/aziz/Documents/NetBeansProjects/projet09/03/wafa/src/Views/Actifs/StockController.java</file>
-            <file>file:/C:/Users/aziz/Documents/NetBeansProjects/projet09/03/wafa/src/Views/Actifs/ClientComptRat.fxml</file>
             <file>file:/C:/Users/aziz/Documents/NetBeansProjects/projet09/03/wafa/src/Views/Actifs/ImmobilisationIncorp.fxml</file>
-            <file>file:/C:/Users/aziz/Documents/NetBeansProjects/projet09/03/wafa/src/Views/TemplateController.java</file>
             <file>file:/C:/Users/aziz/Documents/NetBeansProjects/projet09/03/wafa/src/Views/Actifs/ImmobilisationCorpController.java</file>
-            <file>file:/C:/Users/aziz/Documents/NetBeansProjects/projet09/03/wafa/src/Views/Actifs/BilanActifController.java</file>
             <file>file:/C:/Users/aziz/Documents/NetBeansProjects/projet09/03/wafa/src/Views/Actifs/AutresANCController.java</file>
-            <file>file:/C:/Users/aziz/Documents/NetBeansProjects/projet09/03/wafa/src/Views/Actifs/Stock.fxml</file>
-            <file>file:/C:/Users/aziz/Documents/NetBeansProjects/projet09/03/wafa/src/Views/Actifs/ImmobilisationIncorpController.java</file>
             <file>file:/C:/Users/aziz/Documents/NetBeansProjects/projet09/03/wafa/src/Views/Actifs/LiquiditeController.java</file>
             <file>file:/C:/Users/aziz/Documents/NetBeansProjects/projet09/03/wafa/src/Views/Actifs/PlacementAutreAF.fxml</file>
+            <file>file:/C:/Users/aziz/Documents/NetBeansProjects/projet09/03/wafa/src/Views/AccueilController.java</file>
+            <file>file:/C:/Users/aziz/Documents/NetBeansProjects/projet09/03/wafa/src/Entity/Bilan.java</file>
+            <file>file:/C:/Users/aziz/Documents/NetBeansProjects/projet09/03/wafa/src/Views/Actifs/ImmobilisationFinanController.java</file>
+            <file>file:/C:/Users/aziz/Documents/NetBeansProjects/projet09/03/wafa/src/Services/BilanService.java</file>
+            <file>file:/C:/Users/aziz/Documents/NetBeansProjects/projet09/03/wafa/src/Entity/Comptebilan.java</file>
+            <file>file:/C:/Users/aziz/Documents/NetBeansProjects/projet09/03/wafa/src/Views/Actifs/AutreACController.java</file>
+            <file>file:/C:/Users/aziz/Documents/NetBeansProjects/projet09/03/wafa/src/Views/Actifs/Liquidite.fxml</file>
+            <file>file:/C:/Users/aziz/Documents/NetBeansProjects/projet09/03/wafa/src/Entity/Rubrique.java</file>
+            <file>file:/C:/Users/aziz/Documents/NetBeansProjects/projet09/03/wafa/src/Views/Actifs/ClientComptRat.fxml</file>
+            <file>file:/C:/Users/aziz/Documents/NetBeansProjects/projet09/03/wafa/src/Views/TemplateController.java</file>
+            <file>file:/C:/Users/aziz/Documents/NetBeansProjects/projet09/03/wafa/src/Views/Actifs/BilanActifController.java</file>
+            <file>file:/C:/Users/aziz/Documents/NetBeansProjects/projet09/03/wafa/src/Views/Accueil.fxml</file>
+            <file>file:/C:/Users/aziz/Documents/NetBeansProjects/projet09/03/wafa/src/Views/Actifs/Stock.fxml</file>
+            <file>file:/C:/Users/aziz/Documents/NetBeansProjects/projet09/03/wafa/src/Entity/Compte.java</file>
+            <file>file:/C:/Users/aziz/Documents/NetBeansProjects/projet09/03/wafa/src/Views/Main.java</file>
+            <file>file:/C:/Users/aziz/Documents/NetBeansProjects/projet09/03/wafa/src/Views/BilanController.java</file>
+            <file>file:/C:/Users/aziz/Documents/NetBeansProjects/projet09/03/wafa/src/Views/Actifs/ImmobilisationIncorpController.java</file>
+            <file>file:/C:/Users/aziz/Documents/NetBeansProjects/projet09/03/wafa/src/Views/Template.fxml</file>
+            <file>file:/C:/Users/aziz/Documents/NetBeansProjects/projet09/03/wafa/src/Services/ImmobIncorpService.java</file>
             <file>file:/C:/Users/aziz/Documents/NetBeansProjects/projet09/03/wafa/src/Views/Actifs/PlacementAutreAFController.java</file>
             <file>file:/C:/Users/aziz/Documents/NetBeansProjects/projet09/03/wafa/src/Views/Actifs/ImmobilisationFinan.fxml</file>
-            <file>file:/C:/Users/aziz/Documents/NetBeansProjects/projet09/03/wafa/src/Views/Actifs/ImmobilisationFinanController.java</file>
             <file>file:/C:/Users/aziz/Documents/NetBeansProjects/projet09/03/wafa/src/Views/Actifs/AutresANC.fxml</file>
             <file>file:/C:/Users/aziz/Documents/NetBeansProjects/projet09/03/wafa/src/Views/Actifs/ClientComptRatController.java</file>
         </group>

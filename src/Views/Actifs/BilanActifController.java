@@ -5,10 +5,13 @@
  */
 package Views.Actifs;
 
+import Entity.Bilan;
+import Services.BilanService;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import java.io.IOException;
 import java.net.URL;
+import java.util.Calendar;
 import java.util.ResourceBundle;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -33,8 +36,6 @@ public class BilanActifController implements Initializable {
     private Label TAnneeN;
     @FXML
     private Label TAnneeN1;
-    @FXML
-    private JFXButton BntValider;
     @FXML
     private JFXTextField TImmobIncBrut;
     @FXML
@@ -177,18 +178,52 @@ public class BilanActifController implements Initializable {
     Stage stageAutreAC = new Stage();
     Stage StagePlacement = new Stage();
     Stage stageLiquidite = new Stage();
+    @FXML
+    private JFXButton BtnValider;
+    private JFXButton btnAddBilan;
 
+    public JFXButton getBtnAddBilan() {
+        return btnAddBilan;
+    }
 
+    public void setBtnAddBilan(JFXButton btnAddBilan) {
+        this.btnAddBilan = btnAddBilan;
+    }
+
+    public JFXButton getBtnValider() {
+        return BtnValider;
+    }
+
+    public void setBtnValider(JFXButton BtnValider) {
+        this.BtnValider = BtnValider;
+    }
+    
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        if (!Bilan.valideActif.equals("ouiP")&&!Bilan.valideActif.equals("non") )
+            BtnValider.setDisable(true);
         // TODO
     }    
 
     @FXML
     private void ValiderBilanActifs(ActionEvent event) {
+        if(!Bilan.valideActif.equals("ouiA"))
+        {
+            if (Bilan.valideActif.equals("non"))
+                Bilan.valideActif = "ouiA";
+            else
+            {
+                Bilan.valideActif = "valide";
+                if(Bilan.anneeActif<Calendar.getInstance().get(Calendar.YEAR))
+                    btnAddBilan.setDisable(false);
+            }
+            BtnValider.setDisable(true);
+            BilanService bilanService = new BilanService();
+            bilanService.ValiderBilan();
+        }
     }
 
     @FXML

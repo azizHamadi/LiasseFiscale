@@ -48,7 +48,7 @@
                   <Font name="Corbel" size="15.0" />
                </font>
             </Label>
-            <JFXButton fx:id="BntValider" buttonType="RAISED" layoutX="1082.0" layoutY="7.0" onAction="#ValiderBilanActifs" ripplerFill="#227abd" text="Valider" AnchorPane.rightAnchor="29.0">
+            <JFXButton fx:id="BtnValider" buttonType="RAISED" layoutX="1082.0" layoutY="7.0" onAction="#ValiderBilanActifs" ripplerFill="#227abd" text="Valider" AnchorPane.rightAnchor="29.0">
                <graphic>
                   <FontAwesomeIconView fill="#2279bf" glyphName="CHECK" size="20" />
                </graphic>

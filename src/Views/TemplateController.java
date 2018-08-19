@@ -5,12 +5,20 @@
  */
 package Views;
 
-import Views.ANC.ImmobCorporelleController;
-import Views.ANC.ImmobIncorporelleController;
+import Entity.Bilan;
+import Services.BilanService;
+import Services.CompteBilanService;
+import Services.CompteService;
+import Views.Actifs.BilanActifController;
 import com.jfoenix.controls.JFXButton;
 import java.io.IOException;
 import java.net.URL;
+import java.sql.SQLException;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.ResourceBundle;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javafx.application.Application;
 import static javafx.application.Application.launch;
 import javafx.event.ActionEvent;
@@ -21,6 +29,7 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.SingleSelectionModel;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
@@ -32,7 +41,7 @@ import javafx.stage.Stage;
  *
  * @author aziz
  */
-public class TemplateController  extends Application  {
+public class TemplateController  implements Initializable{
 
     @FXML
     private JFXButton BtnSociete;
@@ -61,24 +70,43 @@ public class TemplateController  extends Application  {
     private Tab TabFluxTresorerie = null ;
     private Parent root = null ;
     Stage stage ;
+    @FXML
+    private JFXButton btnAddBilan;
+    @FXML
+    private Label LabBilan;
+    @FXML
+    private Label LabTotalactif;
+    @FXML
+    private Label LabTotalPassif;
+    BilanActifController bilanActifController ;
+
+    public TabPane getTabBody() {
+        return TabBody;
+    }
+
+    public void setTabBody(TabPane TabBody) {
+        this.TabBody = TabBody;
+    }
     
     
     @Override
-    public void start(Stage stage) throws Exception {
-        this.stage=stage;
-        Parent root = FXMLLoader.load(getClass().getResource("Template.fxml"));
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
-    }
-
-    /**
-     * @param args the command line arguments
-     */
-    public static void main(String[] args){
-        launch(args);
-      
-    }
+    public void initialize(URL url, ResourceBundle rb) {
+        try {
+            bilanActifController = new BilanActifController();
+            // TODO
+            //Bilan bilan = new Bilan(Calendar.getInstance().get(Calendar.YEAR)-1);
+            BilanService bilanService = new BilanService();
+            //Bilan bilanActuel = bilanService.RechercheBilan(bilan);
+            Bilan bilanact = bilanService.MaxBilan();
+            if(bilanact== null || !bilanact.getValide().equals("valide") || bilanact.getAnnee()==Calendar.getInstance().get(Calendar.YEAR) )
+                btnAddBilan.setDisable(true);
+            LabBilan.setText("Bilan "+ bilanact.getAnnee());
+            btnAddBilan.setText(btnAddBilan.getText()+(bilanact.getAnnee()+1));
+        } catch (SQLException ex) {
+            Logger.getLogger(TemplateController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }   
+    
 
     @FXML
     private void Societe(ActionEvent event) {            
@@ -104,7 +132,12 @@ public class TemplateController  extends Application  {
     private void BilanActif(ActionEvent event) throws IOException {
         if(!TabBody.getTabs().contains(TabBilanActif))
         {
-            root = FXMLLoader.load(getClass().getResource("Actifs/BilanActif.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("Actifs/BilanActif.fxml"));
+            Node root = loader.load();
+            bilanActifController = loader.getController();
+            bilanActifController.setBtnAddBilan(btnAddBilan);
+            /*if(!Bilan.valideActif.equals("valide") || !Bilan.valideActif.equals("ouiA"))
+                bilanActifController.getBtnValider().setDisable(false);*/
             TabBilanActif = new Tab("Bilan actif");
             TabBilanActif.setContent(root);
             TabBody.getTabs().add(TabBilanActif);
@@ -150,5 +183,34 @@ public class TemplateController  extends Application  {
     private void GenerateXMLN1(ActionEvent event) {
     }
 
+    @FXML
+    private void AjouterBilan(ActionEvent event) {
+        try {
+            BilanService bilanService = new BilanService();
+            Bilan.anneeActif = Bilan.anneeActif+1;
+            Bilan bilan = new Bilan(Bilan.anneeActif);
+            bilanService.AjouterBilan(bilan);
+            CompteService compteService = new CompteService();
+            CompteBilanService compteBilanService = new CompteBilanService();
+            bilan.setId(Bilan.idActif);
+            bilan.setValide(Bilan.valideActif);
+            compteBilanService.ajouterToutCompteBilan(bilan, compteService.AllComptes());
+            btnAddBilan.setDisable(true);
+            btnAddBilan.setText(btnAddBilan.getText().substring(0, btnAddBilan.getText().length()-4)+(Bilan.anneeActif+1 ));
+            LabBilan.setText("Bilan "+Bilan.anneeActif);
+            if(bilanActifController.getBtnValider() != null)
+                bilanActifController.getBtnValider().setDisable(false);
+        } catch (SQLException ex) {
+            Logger.getLogger(TemplateController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    public JFXButton getBtnAddBilan() {
+        return btnAddBilan;
+    }
+
+    public void setBtnAddBilan(JFXButton btnAddBilan) {
+        this.btnAddBilan = btnAddBilan;
+    }
     
 }
