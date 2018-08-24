@@ -5,8 +5,10 @@
  */
 package Views.Actifs;
 
+import Entity.Comptebilan;
 import com.jfoenix.controls.JFXButton;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -62,6 +64,15 @@ public class AutresANCController implements Initializable {
     @FXML
     private JFXButton BtnEnregistrer;
 
+    List<Comptebilan> listAutreAnc;
+
+    public List<Comptebilan> getListAutreAnc() {
+        return listAutreAnc;
+    }
+
+    public void setListAutreAnc(List<Comptebilan> listAutreAnc) {
+        this.listAutreAnc = listAutreAnc;
+    }
     /**
      * Initializes the controller class.
      */

@@ -5,8 +5,10 @@
  */
 package Views.Actifs;
 
+import Entity.Comptebilan;
 import com.jfoenix.controls.JFXButton;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -93,6 +95,7 @@ public class ImmobilisationCorpController implements Initializable {
     private JFXButton BtnAnnuler;
     @FXML
     private JFXButton BtnEnregistrer;
+    
 
     /**
      * Initializes the controller class.

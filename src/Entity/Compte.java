@@ -119,7 +119,9 @@ public class Compte implements Serializable {
 
     @Override
     public String toString() {
-        return "Entity.Compte[ id=" + id + " ]";
+        return "Compte{" + "id=" + id + ", reference=" + reference + ", nom=" + nom + ", referenceammort=" + referenceammort + ", idrubrique=" + idrubrique + '}';
     }
+
+    
     
 }

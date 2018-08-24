@@ -128,7 +128,8 @@ public class Rubrique implements Serializable {
 
     @Override
     public String toString() {
-        return "Entity.Rubrique[ id=" + id + " ]";
+        return "Rubrique{" + "id=" + id + ", nom=" + nom + ", reference=" + reference + ", referenceammort=" + referenceammort + '}';
     }
+    
     
 }

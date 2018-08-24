@@ -5,8 +5,11 @@
  */
 package Views.Actifs;
 
+import Entity.Comptebilan;
+import Services.CompteBilanService;
 import com.jfoenix.controls.JFXButton;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -93,14 +96,57 @@ public class ImmobilisationIncorpController implements Initializable {
     private JFXButton BtnAnnuler;
     @FXML
     private JFXButton BtnEnregistrer;
+    
+    public TextField TImmobIncBrut ;
+    public TextField TImmobIncAmmort ;
+    public TextField TImmobIncNet ;
+    double immobAmmort = 0 ;
+    double immobBrut = 0 ;
+    
+    public List<Comptebilan> listImmobInc;
+
+    public TextField getTImmobIncBrut() {
+        return TImmobIncBrut;
+    }
+
+    public void setTImmobIncBrut(TextField TImmobIncBrut) {
+        this.TImmobIncBrut = TImmobIncBrut;
+    }
+
+    public TextField getTImmobIncAmmort() {
+        return TImmobIncAmmort;
+    }
+
+    public void setTImmobIncAmmort(TextField TImmobIncAmmort) {
+        this.TImmobIncAmmort = TImmobIncAmmort;
+    }
+
+    public TextField getTImmobIncNet() {
+        return TImmobIncNet;
+    }
+
+    public void setTImmobIncNet(TextField TImmobIncNet) {
+        this.TImmobIncNet = TImmobIncNet;
+    }
+    
+    public List<Comptebilan> getListImmobInc() {
+        return listImmobInc;
+    }
+
+    public void setListImmobInc(List<Comptebilan> listImmobInc) {
+        this.listImmobInc = listImmobInc;
+    }
+
 
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        //initialisation des zones de text
         NumberFormat(TAutreImmobIncBrut);
         NumberFormat(TAutreImmobIncAmmort);
+        
         NumberFormat(TAvAcVersesAmmort);
         NumberFormat(TAvAcVersesBrut);
        
@@ -121,7 +167,6 @@ public class ImmobilisationIncorpController implements Initializable {
        
         NumberFormat(TfondComAmmort);
         NumberFormat(TfondComBrut);
-        
         // TODO
     }    
 
@@ -135,6 +180,17 @@ public class ImmobilisationIncorpController implements Initializable {
 
     @FXML
     private void Enregistrer(ActionEvent event) {
+        newList();
+        CompteBilanService compteBilanService = new CompteBilanService();
+        compteBilanService.modifiercompteBilan(listImmobInc);
+        for(Comptebilan c : listImmobInc)
+        {
+            immobAmmort+=c.getAmmort();
+            immobBrut+=c.getBrut();
+        }
+        TImmobIncBrut.setText(String.valueOf(immobBrut));
+        TImmobIncAmmort.setText(String.valueOf(immobAmmort));
+        TImmobIncNet.setText(String.valueOf(immobBrut-immobAmmort));
     }
     
     public void NumberFormat(TextField txtField){
@@ -170,7 +226,6 @@ public class ImmobilisationIncorpController implements Initializable {
         return ""+(Vbrut-Vammort);
     }
 
-            
     @FXML
     private void InvestissementBrut(KeyEvent event) {
         TInvestRechDevNetN.setText(CalculBrut(TInvestRechDevBrut, TInvestRechDevAmmort));
@@ -249,6 +304,118 @@ public class ImmobilisationIncorpController implements Initializable {
     @FXML
     private void AvVersesAmmort(KeyEvent event) {
         TAvAcVersesNetN.setText(CalculBrut(TAvAcVersesBrut, TAvAcVersesAmmort));
+    }
+    
+    public void newList()
+    {
+        for(Comptebilan c : listImmobInc)
+        {
+            if(c.getIdcompte().getNom().equals("Autres Immobilisations Incorporelles"))
+            {
+                c.setBrut(Double.parseDouble(TAutreImmobIncBrut.getText()));
+                c.setAmmort(Double.parseDouble(TAutreImmobIncAmmort.getText()));
+            }
+            if(c.getIdcompte().getNom().equals("Investissement recherche et développement"))
+            {
+                c.setBrut(Double.parseDouble(TInvestRechDevBrut.getText()));
+                c.setAmmort(Double.parseDouble(TInvestRechDevAmmort.getText()));
+            }
+            if(c.getIdcompte().getNom().equals("Concess.marque,brevet,licence,marque"))
+            {
+                c.setBrut(Double.parseDouble(TConcMarqBrut.getText()));
+                c.setAmmort(Double.parseDouble(TConcMarqAmmort.getText()));
+            }
+            if(c.getIdcompte().getNom().equals("Logiciels"))
+            {
+                c.setBrut(Double.parseDouble(TLogicielBrut.getText()));
+                c.setAmmort(Double.parseDouble(TLogicielAmmort.getText()));
+            }
+            if(c.getIdcompte().getNom().equals("Fonds commercial"))
+            {
+                c.setBrut(Double.parseDouble(TfondComBrut.getText()));
+                c.setAmmort(Double.parseDouble(TLogicielAmmort.getText()));
+            }
+            if(c.getIdcompte().getNom().equals("Droit au bail"))
+            {
+                c.setBrut(Double.parseDouble(TDroitBailBrut.getText()));
+                c.setAmmort(Double.parseDouble(TDroitBailAmmort.getText()));
+            }
+            if(c.getIdcompte().getNom().equals("Immobilisations Incorporelles en cours"))
+            {
+                c.setBrut(Double.parseDouble(TImmobIncEnCoursBrut.getText()));
+                c.setAmmort(Double.parseDouble(TImmobIncEnCoursAmmort.getText()));
+            }
+            if(c.getIdcompte().getNom().equals("Av. et Ac.Verses/Cmde.Immob.Incorp"))
+            {
+                c.setBrut(Double.parseDouble(TAvAcVersesBrut.getText()));
+                c.setAmmort(Double.parseDouble(TAvAcVersesAmmort.getText()));
+            }
+        }
+    }
+    
+    public void initTextBox()
+    {
+        //afficher les valeur des zones de text à partir du bd
+        for(Comptebilan c : listImmobInc)
+        {
+            if(c.getIdcompte().getNom().equals("Autres Immobilisations Incorporelles"))
+            {
+                TAutreImmobIncBrut.setText(String.valueOf(c.getBrut()));
+                TAutreImmobIncAmmort.setText(String.valueOf(c.getAmmort()));
+                TAutreImmobIncNetN1.setText(String.valueOf(c.getTotal()));
+            }
+            if(c.getIdcompte().getNom().equals("Investissement recherche et développement"))
+            {
+                TInvestRechDevBrut.setText(String.valueOf(c.getBrut()));
+                TInvestRechDevAmmort.setText(String.valueOf(c.getAmmort()));
+                TInvestRechDevNetN1.setText(String.valueOf(c.getTotal()));
+            }
+            if(c.getIdcompte().getNom().equals("Concess.marque,brevet,licence,marque"))
+            {
+                TConcMarqBrut.setText(String.valueOf(c.getBrut()));
+                TConcMarqAmmort.setText(String.valueOf(c.getAmmort()));
+                TConcMarqNetN1.setText(String.valueOf(c.getTotal()));
+            }
+            if(c.getIdcompte().getNom().equals("Logiciels"))
+            {
+                TLogicielBrut.setText(String.valueOf(c.getBrut()));
+                TLogicielAmmort.setText(String.valueOf(c.getAmmort()));
+                TLogicielNetN1.setText(String.valueOf(c.getTotal()));
+            }
+            if(c.getIdcompte().getNom().equals("Fonds commercial"))
+            {
+                TfondComBrut.setText(String.valueOf(c.getBrut()));
+                TfondComAmmort.setText(String.valueOf(c.getAmmort()));
+                TfondComNetN1.setText(String.valueOf(c.getTotal()));
+            }
+            if(c.getIdcompte().getNom().equals("Droit au bail"))
+            {
+                TDroitBailBrut.setText(String.valueOf(c.getBrut()));
+                TDroitBailAmmort.setText(String.valueOf(c.getAmmort()));
+                TDroitBailNetN1.setText(String.valueOf(c.getTotal()));
+            }
+            if(c.getIdcompte().getNom().equals("Immobilisations Incorporelles en cours"))
+            {
+                TImmobIncEnCoursBrut.setText(String.valueOf(c.getBrut()));
+                TImmobIncEnCoursAmmort.setText(String.valueOf(c.getAmmort()));
+                TImmobIncEnCoursNetN1.setText(String.valueOf(c.getTotal()));
+            }
+            if(c.getIdcompte().getNom().equals("Av. et Ac.Verses/Cmde.Immob.Incorp"))
+            {
+                TAvAcVersesBrut.setText(String.valueOf(c.getBrut()));
+                TAvAcVersesAmmort.setText(String.valueOf(c.getAmmort()));
+                TAvAcVersesNetN1.setText(String.valueOf(c.getTotal()));
+            }
+        }
+        TInvestRechDevNetN.setText(CalculBrut(TInvestRechDevBrut, TInvestRechDevAmmort));
+        TConcMarqNetN.setText(CalculBrut(TConcMarqBrut, TConcMarqAmmort));
+        TLogicielNetN.setText(CalculBrut(TLogicielBrut, TLogicielAmmort));
+        TfondComNetN.setText(CalculBrut(TfondComBrut, TfondComAmmort));
+        TDroitBailNetN.setText(CalculBrut(TDroitBailBrut, TDroitBailAmmort));
+        TAutreImmobIncNetN.setText(CalculBrut(TAutreImmobIncBrut, TAutreImmobIncAmmort));
+        TImmobIncEnCoursNetN.setText(CalculBrut(TImmobIncEnCoursBrut, TImmobIncEnCoursAmmort));
+        TAvAcVersesNetN.setText(CalculBrut(TAvAcVersesBrut, TAvAcVersesAmmort));
+
     }
     
 }

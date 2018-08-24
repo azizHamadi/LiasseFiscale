@@ -8,9 +8,11 @@ package Services;
 import Entity.Bilan;
 import Entity.Compte;
 import Entity.Comptebilan;
+import Entity.Rubrique;
 import Technique.DataSource;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
@@ -50,6 +52,43 @@ public class CompteBilanService {
                 Logger.getLogger(CompteBilanService.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+    }
+    
+    public void modifiercompteBilan(List<Comptebilan> listCompteBilan)
+    {
+        for (Comptebilan c : listCompteBilan)
+        {
+            try {
+                String req ="update comptebilan set brut="+c.getBrut()+" ,ammort = "+c.getAmmort()+" ,date =Now() where id="+c.getId();
+                PreparedStatement pre = con.prepareStatement(req);
+                pre.executeUpdate();
+            } catch (SQLException ex) {
+                Logger.getLogger(CompteBilanService.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
+    }
+    
+    public List<Comptebilan> ListeCompteRubrique(String rub)
+    {
+        ArrayList<Comptebilan> listeCompte = new ArrayList<>();
+        try {
+            ResultSet rsCompte = ste.executeQuery("select * from compte c , rubrique r , comptebilan cb where c.id=cb.idcompte and cb.idbilan="+Bilan.idActif+" and c.idrubrique=r.id and r.nom='"+ rub +"' ") ;
+            while(rsCompte.next())
+            {
+                Comptebilan compteBilan = new Comptebilan(rsCompte.getInt("cb.id"), rsCompte.getDouble("cb.brut"), rsCompte.getDate("cb.date"), rsCompte.getDouble("ammort"));
+                Compte compte = new Compte(rsCompte.getInt("c.id"), rsCompte.getString("c.reference"), rsCompte.getString("c.nom"));
+                Rubrique rubrique = new Rubrique(rsCompte.getInt("r.id"), rsCompte.getString("r.nom"), rsCompte.getString("r.reference"));
+                compte.setIdrubrique(rubrique);
+                compteBilan.setIdcompte(compte);
+                listeCompte.add(compteBilan);
+            }
+            
+            return listeCompte;
+        } catch (SQLException ex) {
+            Logger.getLogger(CompteBilanService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return listeCompte;
+
     }
     
 }

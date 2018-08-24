@@ -55,4 +55,22 @@ public class CompteService {
         return listeCompte;
     }
     
+    public List<Compte> ListeCompteRubrique(String rub)
+    {
+        ArrayList<Compte> listeCompte = new ArrayList<>();
+        try {
+            ResultSet rsCompte = ste.executeQuery("select * from compte c , rubrique r where c.id=r.id and r.nom='"+ rub +"' ") ;
+            while(rsCompte.next())
+            {
+                Compte compte = new Compte(rsCompte.getInt("c.id"), rsCompte.getString("c.reference"), rsCompte.getString("c.nom"));
+                Rubrique rubrique = new Rubrique(rsCompte.getInt("r.id"), rsCompte.getString("r.nom"), rsCompte.getString("r.reference"));
+                compte.setIdrubrique(rubrique);
+                listeCompte.add(compte);
+            }            
+        } catch (SQLException ex) {
+            Logger.getLogger(CompteService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return listeCompte;
+    }
+    
 }

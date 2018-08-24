@@ -5,8 +5,10 @@
  */
 package Views.Actifs;
 
+import Entity.Comptebilan;
 import com.jfoenix.controls.JFXButton;
 import java.net.URL;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.beans.value.ChangeListener;
 import javafx.beans.value.ObservableValue;
@@ -61,6 +63,16 @@ public class PlacementAutreAFController implements Initializable {
     private JFXButton BtnAnnuler;
     @FXML
     private JFXButton BtnEnregistrer;
+    
+    public List<Comptebilan> comptebilan ;
+
+    public List<Comptebilan> getComptebilan() {
+        return comptebilan;
+    }
+
+    public void setComptebilan(List<Comptebilan> comptebilan) {
+        this.comptebilan = comptebilan;
+    }
 
     /**
      * Initializes the controller class.

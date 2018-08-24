@@ -128,7 +128,9 @@ public class Comptebilan implements Serializable {
 
     @Override
     public String toString() {
-        return "Entity.Comptebilan[ id=" + id + " ]";
+        return "Comptebilan{" + "id=" + id + ", brut=" + brut + ", date=" + date + ", total=" + total + ", ammort=" + ammort + ", idbilan=" + idbilan + ", idcompte=" + idcompte + '}';
     }
+
+    
     
 }

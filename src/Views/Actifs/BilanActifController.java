@@ -6,17 +6,22 @@
 package Views.Actifs;
 
 import Entity.Bilan;
+import Entity.Comptebilan;
 import Services.BilanService;
+import Services.CompteBilanService;
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXTextField;
 import java.io.IOException;
 import java.net.URL;
 import java.util.Calendar;
+import java.util.List;
 import java.util.ResourceBundle;
+import java.util.stream.Collectors;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
@@ -178,6 +183,17 @@ public class BilanActifController implements Initializable {
     Stage stageAutreAC = new Stage();
     Stage StagePlacement = new Stage();
     Stage stageLiquidite = new Stage();
+    
+    List<Comptebilan> listImmobInc;
+    List<Comptebilan> listImmobCorp;
+    List<Comptebilan> listImmobFin;
+    List<Comptebilan> listAutreANC;
+    List<Comptebilan> listStock;
+    List<Comptebilan> listClient;
+    List<Comptebilan> listAutreAC;
+    List<Comptebilan> listPlacement;
+    List<Comptebilan> listLiq;
+    
     @FXML
     private JFXButton BtnValider;
     private JFXButton btnAddBilan;
@@ -205,6 +221,109 @@ public class BilanActifController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         if (!Bilan.valideActif.equals("ouiP")&&!Bilan.valideActif.equals("non") )
             BtnValider.setDisable(true);
+            CompteBilanService compteBilanService = new CompteBilanService();
+            listImmobInc = compteBilanService.ListeCompteRubrique("Immobilisations Incorporelles");
+            listImmobCorp = compteBilanService.ListeCompteRubrique("Immobilisations corporelles");
+            listImmobFin = compteBilanService.ListeCompteRubrique("Immobilisations financieres");
+            listAutreANC = compteBilanService.ListeCompteRubrique("Autres actifs non courants");
+            listStock = compteBilanService.ListeCompteRubrique("Stocks");
+            listClient = compteBilanService.ListeCompteRubrique("Clients et comptes rattaches");
+            listAutreAC = compteBilanService.ListeCompteRubrique("Autres Actifs Courants");
+            listPlacement = compteBilanService.ListeCompteRubrique("Placements et autres actifs financiers");
+            listLiq = compteBilanService.ListeCompteRubrique("Liquidites et equivalents de liquidites");
+            double immobBrut=0;
+            double immobAmmort=0;
+            double immmobAmmort=0;
+            double immobCorpBrut=0;
+            double immobCorpAmmort=0;
+            double immobFinBrut=0;
+            double immobFinAmmort=0;
+            double autreANCBrut=0;
+            double autreANCAmmort=0;
+            double StockBrut=0;
+            double StockAmmort=0;
+            double ClientBrut=0;
+            double ClientAmmort=0;
+            double autreACBrut=0;
+            double autreACAmmort=0;
+            double PlacementBrut=0;
+            double PlacementAmmort=0;
+            double LiqBrut=0;
+            double LiqAmmort= 0 ;
+            for (Comptebilan c : listImmobInc)
+            {   
+                immobAmmort+=c.getAmmort();
+                immobBrut+=c.getBrut();
+            }
+            for (Comptebilan c : listImmobCorp)
+            {
+                immobCorpAmmort+=c.getAmmort();
+                immobCorpBrut+=c.getBrut();
+            }
+            for (Comptebilan c : listImmobFin)
+            {
+                immobFinAmmort+=c.getAmmort();
+                immobFinAmmort+=c.getBrut();
+            }
+            for (Comptebilan c : listAutreANC)
+            {
+                autreANCAmmort+=c.getAmmort();
+                autreANCAmmort+=c.getBrut();
+            }
+            for (Comptebilan c : listStock)
+            {
+                StockAmmort+=c.getAmmort();
+                StockBrut+=c.getBrut();
+            }
+            for (Comptebilan c : listClient)
+            {
+                ClientAmmort+=c.getAmmort();
+                ClientBrut+=c.getBrut();
+            }
+            for (Comptebilan c : listAutreAC)
+            {
+                autreACAmmort+=c.getAmmort();
+                autreACBrut+=c.getBrut();
+            }
+            for (Comptebilan c : listPlacement)
+            {
+                PlacementAmmort+=c.getAmmort();
+                PlacementBrut+=c.getBrut();
+            }
+            for (Comptebilan c : listLiq)
+            {
+                LiqAmmort+=c.getAmmort();
+                LiqBrut+=c.getBrut();
+            }
+            
+            TImmobIncAmmort.setText(String.valueOf(immobAmmort));
+            TImmobIncBrut.setText(String.valueOf(immobBrut));
+            TImmobIncNetN.setText(String.valueOf(immobBrut-immobAmmort));
+            TImmobCorpAmmort.setText(String.valueOf(immobCorpAmmort));
+            TImmobCorpBrut.setText(String.valueOf(immobCorpBrut));
+            TImmobCorpNetN.setText(String.valueOf(immobCorpBrut-immobCorpAmmort));
+            TImmobFinAmmort.setText(String.valueOf(immobFinAmmort));
+            TImmobFinBrut.setText(String.valueOf(immobFinBrut));
+            TImmobFinNetN.setText(String.valueOf(immobFinBrut-immobFinAmmort));
+            TAutreAncAmmort.setText(String.valueOf(autreANCAmmort));
+            TAutreAncBrut.setText(String.valueOf(autreANCBrut));
+            TAutreAncNetN.setText(String.valueOf(autreANCBrut-autreANCAmmort));
+            TStockAmmort.setText(String.valueOf(StockAmmort));
+            TStockBrut.setText(String.valueOf(StockBrut));
+            TStockNetN.setText(String.valueOf(StockBrut-StockAmmort));
+            TClientComptAmmort.setText(String.valueOf(ClientAmmort));
+            TClientComptBrut.setText(String.valueOf(ClientBrut));
+            TClientComptNetN.setText(String.valueOf(ClientBrut-ClientAmmort));
+            TAutreACAmmort.setText(String.valueOf(autreACAmmort));
+            TAutreACBrut.setText(String.valueOf(autreACBrut));
+            TAutreACNetN.setText(String.valueOf(autreACBrut-autreACAmmort));
+            TPlacAutreAFAmmort.setText(String.valueOf(PlacementAmmort));
+            TPlacAutreAFBrut.setText(String.valueOf(PlacementBrut));
+            TPlacAutreAFNetN.setText(String.valueOf(PlacementBrut-PlacementAmmort));
+            TLiquiditeAmmort.setText(String.valueOf(LiqAmmort));
+            TLiquiditeBrut.setText(String.valueOf(LiqBrut));
+            TLiquiditeNetN.setText(String.valueOf(LiqBrut-LiqAmmort));
+            
         // TODO
     }    
 
@@ -232,7 +351,14 @@ public class BilanActifController implements Initializable {
         {   
             stageImmobInc.setResizable(false);
             stageImmobInc.setTitle("Immobilisations incorporelles");
-            Parent root = FXMLLoader.load(getClass().getResource("ImmobilisationIncorp.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ImmobilisationIncorp.fxml"));
+            Parent root = loader.load();
+            ImmobilisationIncorpController immobilisationIncorpController = loader.getController();
+            immobilisationIncorpController.setListImmobInc(listImmobInc.stream().filter(c->c.getIdcompte().getIdrubrique().getNom().equals("Immobilisations Incorporelles")).collect(Collectors.toList()));
+            immobilisationIncorpController.initTextBox();
+            immobilisationIncorpController.setTImmobIncAmmort(TImmobIncAmmort);
+            immobilisationIncorpController.setTImmobIncBrut(TImmobIncBrut);
+            immobilisationIncorpController.setTImmobIncNet(TImmobIncNetN);
             Scene scene = new Scene(root);
             stageImmobInc.setScene(scene);
             stageImmobInc.show();
@@ -274,7 +400,12 @@ public class BilanActifController implements Initializable {
         {
             stageAutreAnc.setResizable(false);
             stageAutreAnc.setTitle("Autres actifs non courants");
-            Parent root = FXMLLoader.load(getClass().getResource("AutresANC.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("AutresANC.fxml"));
+            Parent root = loader.load();
+            AutresANCController autresANCController = loader.getController();
+            autresANCController.setListAutreAnc(listAutreANC.stream().filter(c->c.getIdcompte().getIdrubrique().getNom().equals("Autres actifs non courants")).collect(Collectors.toList()));
+            for (Comptebilan c : autresANCController.getListAutreAnc())
+                System.out.println("autre anc : "+c);
             Scene scene = new Scene(root);
             stageAutreAnc.setScene(scene);
             stageAutreAnc.show();
@@ -330,7 +461,13 @@ public class BilanActifController implements Initializable {
         {
             StagePlacement.setResizable(false);
             StagePlacement.setTitle("Placements et autres actifs financiers");
-            Parent root = FXMLLoader.load(getClass().getResource("PlacementAutreAF.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("PlacementAutreAF.fxml"));
+            Parent root = loader.load();
+            PlacementAutreAFController placementAutreAFController = loader.getController();
+            System.out.println("placement : "+listPlacement);
+            placementAutreAFController.setComptebilan(listPlacement.stream().filter(c->c.getIdcompte().getIdrubrique().getNom().equals("Placements et autres actifs financiers")).collect(Collectors.toList()));
+            for(Comptebilan c : placementAutreAFController.getComptebilan())
+                System.out.println("compte : "+c);
             Scene scene = new Scene(root);
             StagePlacement.setScene(scene);
             StagePlacement.show();
