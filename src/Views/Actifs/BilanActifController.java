@@ -354,7 +354,7 @@ public class BilanActifController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("ImmobilisationIncorp.fxml"));
             Parent root = loader.load();
             ImmobilisationIncorpController immobilisationIncorpController = loader.getController();
-            immobilisationIncorpController.setListImmobInc(listImmobInc.stream().filter(c->c.getIdcompte().getIdrubrique().getNom().equals("Immobilisations Incorporelles")).collect(Collectors.toList()));
+            immobilisationIncorpController.setListImmobInc(listImmobInc);
             immobilisationIncorpController.initTextBox();
             immobilisationIncorpController.setTImmobIncAmmort(TImmobIncAmmort);
             immobilisationIncorpController.setTImmobIncBrut(TImmobIncBrut);
@@ -372,7 +372,14 @@ public class BilanActifController implements Initializable {
         {
             stageImmobcorp.setResizable(false);
             stageImmobcorp.setTitle("Immobilisations corporelles");
-            Parent root = FXMLLoader.load(getClass().getResource("ImmobilisationCorp.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ImmobilisationCorp.fxml"));
+            Parent root = loader.load();
+            ImmobilisationCorpController immobilisationCorpController = loader.getController();
+            immobilisationCorpController.setListImmobCorp(listImmobCorp);
+            immobilisationCorpController.initTextBox();
+            immobilisationCorpController.setTImmobCBrut(TImmobCorpBrut);
+            immobilisationCorpController.setTImmobCAmmort(TImmobCorpAmmort);
+            immobilisationCorpController.setTImmobCNet(TImmobCorpNetN);
             Scene scene = new Scene(root);
             stageImmobcorp.setScene(scene);
             stageImmobcorp.show();
@@ -386,7 +393,15 @@ public class BilanActifController implements Initializable {
         {
             stageImmobFin.setResizable(false);
             stageImmobFin.setTitle("Immobilisations financières");
-            Parent root = FXMLLoader.load(getClass().getResource("ImmobilisationFinan.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("ImmobilisationFinan.fxml"));
+            Parent root = loader.load();
+            ImmobilisationFinanController immobilisationFinanController= loader.getController();
+            System.out.println("Views.Actifs.BilanActifController.AddImmobFin() " + listImmobFin);
+            immobilisationFinanController.setListImmobFin(listImmobFin);
+            immobilisationFinanController.initTextBox();
+            immobilisationFinanController.setTImmobFNet(TImmobFinNetN);
+            immobilisationFinanController.setTImmobFBrut(TImmobFinBrut);
+            immobilisationFinanController.setTImmobFAmmort(TImmobFinAmmort);
             Scene scene = new Scene(root);
             stageImmobFin.setScene(scene);
             stageImmobFin.show();    
@@ -403,7 +418,7 @@ public class BilanActifController implements Initializable {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("AutresANC.fxml"));
             Parent root = loader.load();
             AutresANCController autresANCController = loader.getController();
-            autresANCController.setListAutreAnc(listAutreANC.stream().filter(c->c.getIdcompte().getIdrubrique().getNom().equals("Autres actifs non courants")).collect(Collectors.toList()));
+            autresANCController.setListAutreAnc(listAutreANC);
             for (Comptebilan c : autresANCController.getListAutreAnc())
                 System.out.println("autre anc : "+c);
             Scene scene = new Scene(root);

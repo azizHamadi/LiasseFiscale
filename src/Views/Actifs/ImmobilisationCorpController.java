@@ -6,6 +6,7 @@
 package Views.Actifs;
 
 import Entity.Comptebilan;
+import Services.CompteBilanService;
 import com.jfoenix.controls.JFXButton;
 import java.net.URL;
 import java.util.List;
@@ -96,6 +97,46 @@ public class ImmobilisationCorpController implements Initializable {
     @FXML
     private JFXButton BtnEnregistrer;
     
+    public TextField TImmobCBrut ;
+    public TextField TImmobCAmmort ;
+    public TextField TImmobCNet ;
+    double immobAmmort = 0 ;
+    double immobBrut = 0 ;
+    
+    public List<Comptebilan> listImmobCorp;
+
+    public TextField getTImmobCBrut() {
+        return TImmobCBrut;
+    }
+
+    public void setTImmobCBrut(TextField TImmobCBrut) {
+        this.TImmobCBrut = TImmobCBrut;
+    }
+
+    public TextField getTImmobCAmmort() {
+        return TImmobCAmmort;
+    }
+
+    public void setTImmobCAmmort(TextField TImmobCAmmort) {
+        this.TImmobCAmmort = TImmobCAmmort;
+    }
+
+    public TextField getTImmobCNet() {
+        return TImmobCNet;
+    }
+
+    public void setTImmobCNet(TextField TImmobCNet) {
+        this.TImmobCNet = TImmobCNet;
+    }
+
+    
+    public List<Comptebilan> getListImmobCorp() {
+        return listImmobCorp;
+    }
+
+    public void setListImmobCorp(List<Comptebilan> listImmobCorp) {
+        this.listImmobCorp = listImmobCorp;
+    }
 
     /**
      * Initializes the controller class.
@@ -242,7 +283,129 @@ public class ImmobilisationCorpController implements Initializable {
 
     @FXML
     private void Enregistrer(ActionEvent event) {
+        newList();
+        CompteBilanService compteBilanService = new CompteBilanService();
+        compteBilanService.modifiercompteBilan(listImmobCorp);
+        for(Comptebilan c : listImmobCorp)
+        {
+            immobAmmort+=c.getAmmort();
+            immobBrut+=c.getBrut();
+        }
+        TImmobCBrut.setText(String.valueOf(immobBrut));
+        TImmobCAmmort.setText(String.valueOf(immobAmmort));
+        TImmobCNet.setText(String.valueOf(immobBrut-immobAmmort));
     }
 
+    public void newList()
+    {
+        for(Comptebilan c : listImmobCorp)
+        {
+            if(c.getIdcompte().getNom().equals("Terrains"))
+            {
+                c.setBrut(Double.parseDouble(TTerrainBrut.getText()));
+                c.setAmmort(Double.parseDouble(TTerrainAmmort.getText()));
+            }
+            if(c.getIdcompte().getNom().equals("Constructions"))
+            {
+                c.setBrut(Double.parseDouble(TConstructionBrut.getText()));
+                c.setAmmort(Double.parseDouble(TConstructionAmmort.getText()));
+            }
+            if(c.getIdcompte().getNom().equals("Inst. Tech., materiel et outillages Industriels"))
+            {
+                c.setBrut(Double.parseDouble(TInstTechBrut.getText()));
+                c.setAmmort(Double.parseDouble(TInstTechAmmort.getText()));
+            }
+            if(c.getIdcompte().getNom().equals("Materiel de transport"))
+            {
+                c.setBrut(Double.parseDouble(TmaterielTranBrut.getText()));
+                c.setAmmort(Double.parseDouble(TmaterielTranAmmort.getText()));
+            }
+            if(c.getIdcompte().getNom().equals("Autres Immobilisations Corporelles"))
+            {
+                c.setBrut(Double.parseDouble(TAutreImmobCBrut.getText()));
+                c.setAmmort(Double.parseDouble(TAutreImmobCAmmort.getText()));
+            }
+            if(c.getIdcompte().getNom().equals("Immob. Corporelles en cours"))
+            {
+                c.setBrut(Double.parseDouble(TImmobCorpBrut.getText()));
+                c.setAmmort(Double.parseDouble(TImmobCorpAmmort.getText()));
+            }
+            if(c.getIdcompte().getNom().equals("Av. et Ac. Verses/Commande Immob.Corp"))
+            {
+                c.setBrut(Double.parseDouble(TAvVersesBrut.getText()));
+                c.setAmmort(Double.parseDouble(TAvVersesAmmort.getText()));
+            }
+            if(c.getIdcompte().getNom().equals("Immob. a statut juridique particulier"))
+            {
+                c.setBrut(Double.parseDouble(TImmobStatJBrut.getText()));
+                c.setAmmort(Double.parseDouble(TImmobStatJAmmort.getText()));
+            }
+        }
+    }
+    
+    public void initTextBox()
+    {
+        //afficher les valeur des zones de text à partir du bd
+        for(Comptebilan c : listImmobCorp)
+        {
+            if(c.getIdcompte().getNom().equals("Terrains"))
+            {
+                TTerrainBrut.setText(String.valueOf(c.getBrut()));
+                TTerrainAmmort.setText(String.valueOf(c.getAmmort()));
+                TTerrainNetN1.setText(String.valueOf(c.getTotal()));
+            }
+            if(c.getIdcompte().getNom().equals("Constructions"))
+            {
+                TConstructionBrut.setText(String.valueOf(c.getBrut()));
+                TConstructionAmmort.setText(String.valueOf(c.getAmmort()));
+                TConstructionNetN1.setText(String.valueOf(c.getTotal()));
+            }
+            if(c.getIdcompte().getNom().equals("Inst. Tech., materiel et outillages Industriels"))
+            {
+                TInstTechBrut.setText(String.valueOf(c.getBrut()));
+                TInstTechAmmort.setText(String.valueOf(c.getAmmort()));
+                TInstTechNetN1.setText(String.valueOf(c.getTotal()));
+            }
+            if(c.getIdcompte().getNom().equals("Materiel de transport"))
+            {
+                TmaterielTranBrut.setText(String.valueOf(c.getBrut()));
+                TmaterielTranAmmort.setText(String.valueOf(c.getAmmort()));
+                TmaterielTranNetN1.setText(String.valueOf(c.getTotal()));
+            }
+            if(c.getIdcompte().getNom().equals("Autres Immobilisations Corporelles"))
+            {
+                TAutreImmobCBrut.setText(String.valueOf(c.getBrut()));
+                TAutreImmobCAmmort.setText(String.valueOf(c.getAmmort()));
+                TAutreImmobCNetN1.setText(String.valueOf(c.getTotal()));
+            }
+            if(c.getIdcompte().getNom().equals("Immob. Corporelles en cours"))
+            {
+                TImmobCorpBrut.setText(String.valueOf(c.getBrut()));
+                TImmobCorpAmmort.setText(String.valueOf(c.getAmmort()));
+                TImmobCorpNetN1.setText(String.valueOf(c.getTotal()));
+            }
+            if(c.getIdcompte().getNom().equals("Av. et Ac. Verses/Commande Immob.Corp"))
+            {
+                TAvVersesBrut.setText(String.valueOf(c.getBrut()));
+                TAvVersesAmmort.setText(String.valueOf(c.getAmmort()));
+                TAvVersesNetN1.setText(String.valueOf(c.getTotal()));
+            }
+            if(c.getIdcompte().getNom().equals("Immob. a statut juridique particulier"))
+            {
+                TImmobStatJBrut.setText(String.valueOf(c.getBrut()));
+                TImmobStatJAmmort.setText(String.valueOf(c.getAmmort()));
+                TImmobStatJNetN1.setText(String.valueOf(c.getTotal()));
+            }
+        }
+        TTerrainNetN.setText(CalculBrut(TTerrainBrut, TTerrainAmmort));
+        TConstructionNetN.setText(CalculBrut(TConstructionBrut, TConstructionAmmort));
+        TInstTechNetN.setText(CalculBrut(TInstTechBrut, TInstTechAmmort));
+        TmaterielTranNetN.setText(CalculBrut(TmaterielTranBrut, TmaterielTranAmmort));
+        TAutreImmobCNetN.setText(CalculBrut(TAutreImmobCBrut, TAutreImmobCAmmort));
+        TImmobCorpNetN.setText(CalculBrut(TImmobCorpBrut, TImmobCorpAmmort));
+        TAvVersesNetN.setText(CalculBrut(TAvVersesBrut, TAvVersesAmmort));
+        TImmobStatJNetN.setText(CalculBrut(TImmobStatJBrut, TImmobStatJAmmort));
+
+    }
     
 }
