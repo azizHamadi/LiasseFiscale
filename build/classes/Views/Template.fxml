@@ -11,16 +11,16 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="950.0" prefWidth="1521.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Views.TemplateController">
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1440.0" style="-fx-background-color: #fff;" xmlns="http://javafx.com/javafx/8.0.141" xmlns:fx="http://javafx.com/fxml/1" fx:controller="Views.TemplateController">
    <children>
-      <AnchorPane prefHeight="798.0" prefWidth="319.0" style="-fx-background-color: #F0f7ff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane prefHeight="800.0" prefWidth="256.0" style="-fx-background-color: #F0f7ff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <AnchorPane prefHeight="798.0" prefWidth="52.0" style="-fx-background-color: #fff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <AnchorPane prefHeight="950.0" prefWidth="52.0" style="-fx-background-color: #fff;" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
                <effect>
                   <DropShadow />
                </effect>
             </AnchorPane>
-            <VBox layoutX="2.0" prefHeight="798.0" prefWidth="319.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="2.0" AnchorPane.topAnchor="0.0">
+            <VBox layoutX="2.0" prefHeight="800.0" prefWidth="254.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="2.0" AnchorPane.topAnchor="0.0">
                <children>
                   <JFXButton fx:id="BtnSociete" alignment="BASELINE_LEFT" graphicTextGap="30.0" onAction="#Societe" prefHeight="58.0" prefWidth="319.0" ripplerFill="#2279bf" text="Société">
                      <VBox.margin>
@@ -93,13 +93,13 @@
             <DropShadow />
          </effect>
       </AnchorPane>
-      <AnchorPane layoutX="322.0" prefHeight="798.0" prefWidth="979.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="321.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane layoutX="258.0" prefHeight="800.0" prefWidth="1147.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="258.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <TabPane fx:id="TabBody" prefHeight="798.0" prefWidth="979.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <TabPane fx:id="TabBody" prefHeight="800.0" prefWidth="1100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <tabs>
                   <Tab text="Accueil">
                     <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="832.0" prefWidth="1263.0">
                            <children>
                               <JFXButton fx:id="btnAddBilan" alignment="BASELINE_LEFT" buttonType="RAISED" layoutX="53.0" layoutY="188.0" onAction="#AjouterBilan" prefHeight="39.0" prefWidth="380.0" ripplerFill="#227abd" text="Créer un nouveau bilan de l'année ">
                                  <font>
